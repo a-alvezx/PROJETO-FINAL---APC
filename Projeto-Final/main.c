@@ -11,6 +11,7 @@ typedef struct{
     char placa[10];
     int km_atual;
     int km_ultima_revisao;
+    char status[10];
 } Veiculo;
 
 Veiculo frota[MAX_FROTA];
@@ -42,13 +43,13 @@ void barraCarregamento() {
 
 void pontosCarregamento(){
     int c = 0;
-    while (c != 3) {
-        for ( int i = 0 ; i < 3 ; i++){
+    while (c != 2) {
+        for ( int i = 0 ; i < 2 ; i++){
             printf (".");
             fflush(stdout);
             Sleep(500);
         }
-        printf ("\b\b\b   \b\b\b");
+        printf ("\b\b  \b\b");
         fflush(stdout);
         Sleep (500);
         c++;
@@ -70,6 +71,7 @@ void menu(){
         printf ("\n======================================\n");
         printf(" 1. Cadastrar Veiculo\n");
         printf(" 2. Consultar Frota (Listar)\n");
+        printf(" 3. Gestão de Frota\n");
         printf(" 0. Sair\n");
         printf("======================================\n");
         printf("Opcao: ");
@@ -130,8 +132,15 @@ void cadastrarFrota(){
     printf ("\nDigite o Km da ultima Revisao: ");
     scanf ("%d", &frota[totVeiculos].km_ultima_revisao);
 
+    //Checagem de KM
+    if (frota[totVeiculos].km_atual - frota[totVeiculos].km_ultima_revisao >= 30000){
+        strcpy(frota[totVeiculos].status, "[!] REVISAO");
+    } else {
+        strcpy(frota[totVeiculos].status, "OK");
+    }
+
     totVeiculos++;
-    
+
     printf ("\n[!] Sucesso! Veiculo cadastrado! \n");
     system ("pause");
 }
@@ -139,8 +148,8 @@ void cadastrarFrota(){
 void listarFrota(){
     //Cabeçalho
     system ("cls");
-
-    //
+    
+    printf ("\n| ID    | MODELO          | PLACA      | KM         |\n");
 
     if (totVeiculos == 0){
         printf("\n[!] Nenhum veiculo encontrado... \n");
@@ -148,8 +157,8 @@ void listarFrota(){
         system ("pause");
         return;
     }
-    for ( int i = 0 ; i <= totVeiculos ; i++){
-        printf ("   %-4d | %-15s | %-10s | %-10d |\n", frota[i].id, frota[i].modelo, frota[i].placa, frota[i].km_atual);
+    for ( int i = 0 ; i < totVeiculos ; i++){
+        printf ("|  %-4d | %-15s | %-10s | %-10d | %-4s |\n", frota[i].id, frota[i].modelo, frota[i].placa, frota[i].km_atual, frota[i].status);
         fflush(stdout);
     }
     system("pause");

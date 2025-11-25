@@ -3,20 +3,16 @@
 
 int main()
 {
+int totVeiculos = 1;
 
-
-    int c = 0;
-    while (c != 3) {
-        for ( int i = 0 ; i < 3 ; i++){
-            printf (".");
-            fflush(stdout);
-            Sleep(500);
-        }
-        printf ("\b\b\b   \b\b\b");
-        fflush(stdout);
-        Sleep (500);
-        c++;
-    }
+     system ("cls");
+    printf ("\n| ID    | MODELO          | PLACA      | KM         |\n");
     
+    for ( int i = 0 ; i < totVeiculos ; i++){
+        printf ("|  %-4d | %-15s | %-10s | %-10d |\n", 1, "2", "3", 4);
+        fflush(stdout);
+    }
+    system("pause");
+
     return 0;
 }
