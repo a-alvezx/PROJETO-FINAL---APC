@@ -8,6 +8,8 @@
 ![Focus](https://img.shields.io/badge/Focus-Engineering_&_Logistics-green)
 ## 📄 Sobre o Projeto
 
+Andre Alves Mendes - 252003794
+
 O **FleetSys** é uma aplicação de console desenvolvida em linguagem C pura, focada na **Engenharia de Manutenção** e gestão de ativos logísticos.
 
 Este sistema foi projetado com a lógica de "Manutenção Preventiva". Ele não apenas armazena dados da frota, mas atua como uma ferramenta de decisão, monitorando a quilometragem dos veículos e alertando automaticamente quando uma revisão é necessária, visando a redução de custos operacionais e o aumento da disponibilidade da frota.
